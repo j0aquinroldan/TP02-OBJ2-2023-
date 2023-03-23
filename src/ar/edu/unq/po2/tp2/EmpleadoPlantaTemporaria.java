@@ -8,26 +8,35 @@ public class EmpleadoPlantaTemporaria extends Empleado {
 	private int cantidadHorasExtras;
 	
 	public EmpleadoPlantaTemporaria(String nombre, String direccion, int estadoCivil, LocalDate fechaNacimiento,
-			double sueldoBasico) {
+			double sueldoBasico, LocalDate fechaFinDesignacionPlantaTemporaria, int cantidadHorasExtras) {
+		
 		super(nombre, direccion, estadoCivil, fechaNacimiento, sueldoBasico);
+		this.fechaFinDesignacionPlantaTemporaria = fechaFinDesignacionPlantaTemporaria;
+		this.cantidadHorasExtras = cantidadHorasExtras;
 	}
+
 
 	@Override
 	public double getSueldoBruto() {
-		// TODO Auto-generated method stub
-		return 0;
+		return super.getSueldoBasico() + this.getHorasExtras();
 	}
 
 	@Override
 	public double getDescuentoObraSocial() {
-		// TODO Auto-generated method stub
-		return 0;
+		double descuentoEdad = 0;
+		if (super.getEdad()>50) {
+			descuentoEdad = 25;
+		}
+		return this.getSueldoBruto()*0.1 + descuentoEdad;
 	}
 
 	@Override
 	public double getAportesJubilatorios() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.getSueldoBruto()*0.1 + this.cantidadHorasExtras *5;
+	}
+	
+	public double getHorasExtras() {
+		return this.cantidadHorasExtras * 40;
 	}
 
 
