@@ -7,6 +7,8 @@ public abstract class Empleado  {
 
 	private String nombre;
 	private String direccion;
+	
+
 	private int estadoCivil;
 	private LocalDate fechaNacimiento;
 	private double sueldoBasico;
@@ -21,13 +23,27 @@ public abstract class Empleado  {
 		this.sueldoBasico = sueldoBasico;
 	}
 
-	public int getEstadoCivil() {
-		return estadoCivil;
-	}
+	public String getNombre() {return nombre;}
 
-	public int getEdad() {
-		return Period.between(this.fechaNacimiento, LocalDate.now()).getYears();
-	}
+	public void setNombre(String nombre){this.nombre = nombre;}
+
+	public String getDireccion() {return direccion;}
+
+	public void setDireccion(String direccion){this.direccion = direccion;}
+
+	public LocalDate getFechaNacimiento(){return fechaNacimiento;}
+
+	public void setFechaNacimiento(LocalDate fechaNacimiento){this.fechaNacimiento = fechaNacimiento;}
+
+	public double getSueldoBasico(){return sueldoBasico;}
+
+	public void setSueldoBasico(double sueldoBasico){this.sueldoBasico = sueldoBasico;}
+
+	public void setEstadoCivil(int estadoCivil){this.estadoCivil = estadoCivil;}
+	
+	public int getEstadoCivil(){return estadoCivil;}
+
+	public int getEdad(){return Period.between(this.fechaNacimiento, LocalDate.now()).getYears();}
 	
 	public abstract double getSueldoBruto() ;
 	
