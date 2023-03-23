@@ -6,7 +6,6 @@ import java.time.LocalDate;
 
 import org.junit.jupiter.api.*;
 
-import ar.edu.unq.po2.tp2.Empleado;
 import ar.edu.unq.po2.tp2.EmpleadoPlantaPermanente;
 
 public class EmpleadoPlantaPermanenteTest {
