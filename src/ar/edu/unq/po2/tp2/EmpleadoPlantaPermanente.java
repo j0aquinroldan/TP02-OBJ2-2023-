@@ -4,9 +4,13 @@ import java.time.LocalDate;
 
 public class EmpleadoPlantaPermanente extends Empleado {
 
+	
 	public EmpleadoPlantaPermanente(String nombre, String direccion, int estadoCivil, LocalDate fechaNacimiento,
-			double sueldoBasico) {
+			double sueldoBasico, int cantidadHijos, int añosAntiguedad) {
+		
 		super(nombre, direccion, estadoCivil, fechaNacimiento, sueldoBasico);
+		this.cantidadHijos = cantidadHijos;
+		this.añosAntiguedad = añosAntiguedad;
 		
 	}
 	private int cantidadHijos;
@@ -14,19 +18,19 @@ public class EmpleadoPlantaPermanente extends Empleado {
 	
 	@Override
 	public double getSueldoBruto() {
-		return 0;
+		return super.getSueldoBasico()+this.getSalarioFamiliar()+ this.getAntiguedad();
 	}
 	@Override
 	public double getDescuentoObraSocial() {
-		return 0;
+		return this.getSueldoBruto() * 0.1 + 20 * this.cantidadHijos;
 	}
 	@Override
 	public double getAportesJubilatorios() {
-		return 0;
+		return this.getSueldoBruto() *0.15;
 	}
 	
 	public double getSalarioFamiliar() {
-		return this.asignacionPorConyuge()+this.asignacionPorConyuge();
+		return this.asignacionPorHijo() + this.asignacionPorConyuge() ;
 	}
 	
 	public double asignacionPorHijo() {
@@ -34,7 +38,11 @@ public class EmpleadoPlantaPermanente extends Empleado {
 	}
 	
 	public double asignacionPorConyuge() {
-		return 150 * super.getEstadoCivil();
+		return 100 * super.getEstadoCivil();
+	}
+	
+	public double getAntiguedad() {
+		return this.añosAntiguedad*50;
 	}
 	
 
