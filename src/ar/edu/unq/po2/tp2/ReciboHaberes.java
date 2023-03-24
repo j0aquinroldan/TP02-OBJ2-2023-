@@ -50,7 +50,7 @@ public class ReciboHaberes {
 	public String getDirección() {
 		return dirección;
 	}
-
+ 
 	public double getSueldoBruto() {
 		return sueldoBruto;
 	}
