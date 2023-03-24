@@ -43,4 +43,20 @@ public class ReciboHaberes {
 		return fechaEmisión;
 	}
 
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getDirección() {
+		return dirección;
+	}
+
+	public double getSueldoBruto() {
+		return sueldoBruto;
+	}
+
+	public double getSueldoNeto() {
+		return SueldoNeto;
+	}
+
 }
