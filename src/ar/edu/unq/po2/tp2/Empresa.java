@@ -1,5 +1,6 @@
 package ar.edu.unq.po2.tp2;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,6 +64,16 @@ public class Empresa {
 
 	public double getMontoTotalRetenciones() {
 		return this.getEmpleados().stream().mapToDouble(e -> e.getRetenciones()).sum();
+	}
+	
+	public void generarRecibo(Empleado e) {
+		ReciboHaberes recibo = new ReciboHaberes(e.getNombre(), e.getDireccion(), LocalDate.now(), e.getSueldoBruto(), 
+				e.getSueldoNeto());
+		e.guardarRecibo(recibo);
+	}
+	
+	public void liquidarSueldos() {
+		this.getEmpleados().stream().forEach(e->this.generarRecibo(e));
 	}
 
 }

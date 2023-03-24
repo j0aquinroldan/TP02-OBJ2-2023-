@@ -2,6 +2,10 @@ package ar.edu.unq.po2.tp2;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
 
 public abstract class Empleado  {
 
@@ -12,6 +16,7 @@ public abstract class Empleado  {
 	private int estadoCivil;
 	private LocalDate fechaNacimiento;
 	private double sueldoBasico;
+	private List<ReciboHaberes> recibos;
 	
 	
 	public Empleado(String nombre, String direccion, int estadoCivil, LocalDate fechaNacimiento,
@@ -21,6 +26,7 @@ public abstract class Empleado  {
 		this.estadoCivil = estadoCivil;
 		this.fechaNacimiento = fechaNacimiento;
 		this.sueldoBasico = sueldoBasico;
+		this.setRecibos(new ArrayList<>());
 	}
 
 	public String getNombre() {return nombre;}
@@ -45,6 +51,10 @@ public abstract class Empleado  {
 
 	public int getEdad(){return Period.between(this.fechaNacimiento, LocalDate.now()).getYears();}
 	
+	public List<ReciboHaberes> getRecibos() {return recibos;}
+
+	public void setRecibos(List<ReciboHaberes> recibos) {this.recibos = recibos;}
+
 	public abstract double getSueldoBruto() ;
 	
 	public  double getSueldoNeto() {
@@ -58,4 +68,13 @@ public abstract class Empleado  {
 	public abstract double getDescuentoObraSocial();
 	
 	public abstract double getAportesJubilatorios();
+
+	public void guardarRecibo(ReciboHaberes recibo) {
+		this.getRecibos().add(recibo);
+	}
+	
+	public Optional<ReciboHaberes> getUltimoRecibo() {
+		return this.getRecibos().stream().
+				min(Comparator.comparingInt(r->Period.between(r.getFechaEmisión(), LocalDate.now()).getDays()));
+	}
 }
