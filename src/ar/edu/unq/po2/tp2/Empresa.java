@@ -1,13 +1,14 @@
 package ar.edu.unq.po2.tp2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Empresa {
-	
+
 	private String nombre;
 	private String cuit;
 	private List<Empleado> empleados;
-	
+
 	public Empresa(String nombre, String cuit, List<Empleado> empleados) {
 		this.setNombre(nombre);
 		this.setCuit(cuit);
@@ -17,6 +18,7 @@ public class Empresa {
 	public Empresa(String nombre, String cuit) {
 		this.setNombre(nombre);
 		this.setCuit(cuit);
+		this.setEmpleados(new ArrayList<Empleado>());
 	}
 
 	public String getNombre() {
@@ -46,7 +48,7 @@ public class Empresa {
 	public void contratar(Empleado e) {
 		this.getEmpleados().add(e);
 	}
-	
+
 	public void despedir(Empleado e) {
 		this.getEmpleados().remove(e);
 	}
@@ -54,13 +56,13 @@ public class Empresa {
 	public double getMontoTotalSueldosNetos() {
 		return this.getEmpleados().stream().mapToDouble(e -> e.getSueldoNeto()).sum();
 	}
-	
+
 	public double getMontoTotalSueldosBrutos() {
 		return this.getEmpleados().stream().mapToDouble(e -> e.getSueldoBruto()).sum();
 	}
-	
+
 	public double getMontoTotalRetenciones() {
 		return this.getEmpleados().stream().mapToDouble(e -> e.getRetenciones()).sum();
 	}
-	
+
 }
