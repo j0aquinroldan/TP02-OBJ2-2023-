@@ -1,6 +1,6 @@
 package ar.edu.unq.po2.tp2.test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import ar.edu.unq.po2.tp2.EmpleadoPlantaPermanente;
 import ar.edu.unq.po2.tp2.EmpleadoPlantaTemporaria;
 import ar.edu.unq.po2.tp2.Empresa;
+import ar.edu.unq.po2.tp2.ReciboHaberes;
 
 public class EmpresaTest {
 
@@ -61,4 +62,15 @@ public class EmpresaTest {
 		empresa.contratar(joaquin);
 		assertEquals(12135 + 15542.5, empresa.getMontoTotalSueldosNetos());
 	}
+	
+	@Test
+	public void generarReciboTest() {
+		ReciboHaberes reciboTest = new ReciboHaberes(pepe.getNombre(), pepe.getDireccion(), LocalDate.now(), pepe.getSueldoBruto(), 
+				pepe.getSueldoNeto());
+		empresa.generarRecibo(pepe);
+		assertEquals(reciboTest, pepe.getUltimoRecibo());
+	}
+	
+	
+	
 }
