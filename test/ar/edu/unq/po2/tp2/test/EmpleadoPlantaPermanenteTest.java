@@ -74,5 +74,5 @@ public class EmpleadoPlantaPermanenteTest {
 		assertEquals(15542.5, empPermanente.getSueldoNeto());
 	}
 	
-	
+
 }
