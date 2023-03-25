@@ -67,7 +67,7 @@ public class Empresa {
 	}
 	
 	public void generarRecibo(Empleado e) {
-		ReciboHaberes recibo = new ReciboHaberes(e.getNombre(), e.getDireccion(), LocalDate.now(), e.getSueldoBruto(), 
+		ReciboHaberes recibo = new ReciboHaberes(e.getNombre(), e.getDireccion(), LocalDate.now(), e.getSueldoBruto(),
 				e.getSueldoNeto());
 		e.guardarRecibo(recibo);
 	}

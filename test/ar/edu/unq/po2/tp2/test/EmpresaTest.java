@@ -1,6 +1,8 @@
 package ar.edu.unq.po2.tp2.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -62,15 +64,42 @@ public class EmpresaTest {
 		empresa.contratar(joaquin);
 		assertEquals(12135 + 15542.5, empresa.getMontoTotalSueldosNetos());
 	}
-	
+
 	@Test
 	public void generarReciboTest() {
-		ReciboHaberes reciboTest = new ReciboHaberes(pepe.getNombre(), pepe.getDireccion(), LocalDate.now(), pepe.getSueldoBruto(), 
-				pepe.getSueldoNeto());
+
+		assertTrue(pepe.getRecibos().isEmpty());
+
 		empresa.generarRecibo(pepe);
-		assertEquals(reciboTest, pepe.getUltimoRecibo());
+		assertFalse(pepe.getRecibos().isEmpty());
+
 	}
-	
-	
-	
+
+	@Test
+	public void generarReciboValoresTest() {
+
+		empresa.generarRecibo(pepe);
+
+		ReciboHaberes r = pepe.getUltimoRecibo().get();
+
+		assertEquals(r.getNombre(), "pepe");
+		assertEquals(r.getDirección(), pepe.getDireccion());
+		assertEquals(r.getFechaEmisión(), LocalDate.now());
+		assertEquals(r.getSueldoBruto(), pepe.getSueldoBruto());
+		assertEquals(r.getSueldoNeto(), pepe.getSueldoNeto());
+	}
+
+	@Test
+	public void liquidarSueldosTest() {
+		empresa.contratar(pepe);
+		empresa.contratar(joaquin);
+
+		assertTrue(pepe.getRecibos().isEmpty());
+		assertTrue(joaquin.getRecibos().isEmpty());
+
+		empresa.liquidarSueldos();
+		assertFalse(joaquin.getRecibos().isEmpty());
+		assertFalse(pepe.getRecibos().isEmpty());
+	}
+
 }
