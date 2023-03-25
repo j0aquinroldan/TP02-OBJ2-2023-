@@ -10,6 +10,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ar.edu.unq.po2.tp2.EmpleadoContratado;
 import ar.edu.unq.po2.tp2.EmpleadoPlantaPermanente;
 import ar.edu.unq.po2.tp2.EmpleadoPlantaTemporaria;
 import ar.edu.unq.po2.tp2.Empresa;
@@ -19,6 +20,7 @@ public class EmpresaTest {
 
 	EmpleadoPlantaPermanente joaquin;
 	EmpleadoPlantaTemporaria pepe;
+	EmpleadoContratado empContratado;
 	Empresa empresa;
 
 	@BeforeEach
@@ -27,6 +29,7 @@ public class EmpresaTest {
 		LocalDate fecini = LocalDate.of(2023, 5, 5);
 		pepe = new EmpleadoPlantaTemporaria("pepe", "calle falsa 123", 0, fecnac, 15000, fecini, 5);
 		joaquin = new EmpleadoPlantaPermanente("joaquin", "alem", 1, fecnac, 20000, 1, 10);
+		empContratado = new EmpleadoContratado("joaquin", "alem", 1, fecnac, 20000, 1, "cheque");
 
 		empresa = new Empresa("empresa", "123");
 	}
@@ -48,21 +51,24 @@ public class EmpresaTest {
 	public void getMontoTotalRetencionesTest() {
 		empresa.contratar(pepe);
 		empresa.contratar(joaquin);
-		assertEquals(3065 + 5207.5, empresa.getMontoTotalRetenciones());
+		empresa.contratar(empContratado);
+		assertEquals(3065 + 5207.5 + 50, empresa.getMontoTotalRetenciones());
 	}
 
 	@Test
 	public void getMontoTotalSueldosBrutosTest() {
 		empresa.contratar(pepe);
 		empresa.contratar(joaquin);
-		assertEquals(20750 + 15200, empresa.getMontoTotalSueldosBrutos());
+		empresa.contratar(empContratado);
+		assertEquals(20750 + 15200 + 20000, empresa.getMontoTotalSueldosBrutos());
 	}
 
 	@Test
 	public void getMontoTotalSueldosNetosTest() {
 		empresa.contratar(pepe);
 		empresa.contratar(joaquin);
-		assertEquals(12135 + 15542.5, empresa.getMontoTotalSueldosNetos());
+		empresa.contratar(empContratado);
+		assertEquals(12135 + 15542.5 + 19950, empresa.getMontoTotalSueldosNetos());
 	}
 
 	@Test
@@ -72,7 +78,6 @@ public class EmpresaTest {
 
 		empresa.generarRecibo(pepe);
 		assertFalse(pepe.getRecibos().isEmpty());
-
 	}
 
 	@Test
@@ -93,13 +98,16 @@ public class EmpresaTest {
 	public void liquidarSueldosTest() {
 		empresa.contratar(pepe);
 		empresa.contratar(joaquin);
+		empresa.contratar(empContratado);
 
 		assertTrue(pepe.getRecibos().isEmpty());
 		assertTrue(joaquin.getRecibos().isEmpty());
+		assertTrue(empContratado.getRecibos().isEmpty());
 
 		empresa.liquidarSueldos();
 		assertFalse(joaquin.getRecibos().isEmpty());
 		assertFalse(pepe.getRecibos().isEmpty());
+		assertFalse(empContratado.getRecibos().isEmpty());
 	}
 
 }
