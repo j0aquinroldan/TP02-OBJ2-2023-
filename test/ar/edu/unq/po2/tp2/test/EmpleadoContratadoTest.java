@@ -12,13 +12,11 @@ import ar.edu.unq.po2.tp2.EmpleadoContratado;
 
 public class EmpleadoContratadoTest {
 	EmpleadoContratado empContratado;
-	Empleado prueba;
 
 	@BeforeEach
 	public void setup() {
 		LocalDate fecnac = LocalDate.of(2001, 9, 5);
 		empContratado = new EmpleadoContratado("joaquin", "alem", 1, fecnac, 20000, 1, "cheque");
-		prueba = new EmpleadoContratado("joaquin", "alem", 1, fecnac, 20000, 1, "cheque");
 	}
 	
 	@Test
