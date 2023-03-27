@@ -81,6 +81,7 @@ public class CounterTestCase {
 
 		assertEquals(counter.maxMultiple(3, 9), 999);
 	}
+
 	@Test
 	public void testMaxMultiple2() {
 
@@ -92,7 +93,7 @@ public class CounterTestCase {
 
 		assertEquals(counter.maxMultiple(40, 20), 1000);
 	}
-	
+
 	@Test
 	public void testMaxMultiple4() {
 
