@@ -34,8 +34,7 @@ public class Counter {
 	}
 
 	public int mostEvenDigits(List<Integer> lista) {
-		return lista.stream().max(Comparator.comparing(n -> this.evenDigits(n)))
-				.get();
+		return lista.stream().max(Comparator.comparing(n -> this.evenDigits(n))).get();
 
 	}
 
@@ -55,5 +54,18 @@ public class Counter {
 
 	public void clearNumbers() {
 		this.numeros.clear();
+	}
+
+	public int maxMultiple(int x, int y) {
+		int multiplo = x * y;
+		int result = 1000;
+
+		while (!(this.isMultipleOf(result, x) && this.isMultipleOf(result, y))) {
+			result--;
+		}
+		if (result == 0 || multiplo < 0) {
+			result = -1;
+		}
+		return result;
 	}
 }

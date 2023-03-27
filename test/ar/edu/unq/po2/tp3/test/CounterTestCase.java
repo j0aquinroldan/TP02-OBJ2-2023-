@@ -46,7 +46,7 @@ public class CounterTestCase {
 // I check the amount is the expected one
 		assertEquals(amount, 1);
 	}
-	
+
 	/**
 	 * Verifica la cantidad de impares
 	 */
@@ -57,7 +57,7 @@ public class CounterTestCase {
 // I check the amount is the expected one
 		assertEquals(amount, 9);
 	}
-	
+
 	/**
 	 * Verifica la cantidad de multiplos de 3
 	 */
@@ -68,11 +68,35 @@ public class CounterTestCase {
 // I check the amount is the expected one
 		assertEquals(amount, 2);
 	}
-	
+
 	@Test
 	public void testMostEvenDigits() {
-		
-		int numero = counter.mostEvenDigits(Arrays.asList(120,33,246,550));
+
+		int numero = counter.mostEvenDigits(Arrays.asList(120, 33, 246, 550));
 		assertEquals(numero, 246);
 	}
+
+	@Test
+	public void testMaxMultiple() {
+
+		assertEquals(counter.maxMultiple(3, 9), 999);
+	}
+	@Test
+	public void testMaxMultiple2() {
+
+		assertEquals(counter.maxMultiple(90, 30), 990);
+	}
+
+	@Test
+	public void testMaxMultiple3() {
+
+		assertEquals(counter.maxMultiple(40, 20), 1000);
+	}
+	
+	@Test
+	public void testMaxMultiple4() {
+
+		assertEquals(counter.maxMultiple(900, 1000), -1);
+	}
+
 }
