@@ -13,6 +13,16 @@ public class ProductoPrimeraNecesidad extends Producto {
 		super(nombre, precioBase, esPreciosCuidados);
 		this.setDescuento(0.1);
 	}
+	
+	public ProductoPrimeraNecesidad(String nombre, double precioBase, double descuento) {
+		super(nombre, precioBase);
+		this.setDescuento(descuento);
+	}
+	
+	public ProductoPrimeraNecesidad(String nombre, double precioBase, Boolean esPreciosCuidados, double descuento) {
+		super(nombre, precioBase, esPreciosCuidados);
+		this.setDescuento(descuento);
+	}
 
 	private void setDescuento(double d) {
 		this.descuento = d;
