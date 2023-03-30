@@ -12,12 +12,12 @@ public abstract class Empleado {
 	private String nombre;
 	private String direccion;
 
-	private int estadoCivil;
+	private EstadoCivil estadoCivil;
 	private LocalDate fechaNacimiento;
 	private double sueldoBasico;
 	private List<ReciboHaberes> recibos;
 
-	public Empleado(String nombre, String direccion, int estadoCivil, LocalDate fechaNacimiento, double sueldoBasico) {
+	public Empleado(String nombre, String direccion, EstadoCivil estadoCivil, LocalDate fechaNacimiento, double sueldoBasico) {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.estadoCivil = estadoCivil;
@@ -58,11 +58,11 @@ public abstract class Empleado {
 		this.sueldoBasico = sueldoBasico;
 	}
 
-	public void setEstadoCivil(int estadoCivil) {
+	public void setEstadoCivil(EstadoCivil estadoCivil) {
 		this.estadoCivil = estadoCivil;
 	}
 
-	public int getEstadoCivil() {
+	public EstadoCivil getEstadoCivil() {
 		return estadoCivil;
 	}
 

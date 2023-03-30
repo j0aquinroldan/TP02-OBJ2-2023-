@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ar.edu.unq.po2.tp2.EmpleadoPlantaTemporaria;
+import ar.edu.unq.po2.tp2.EstadoCivil;
 
 public class EmpleadoPlantaTemporariaTest {
 
@@ -19,8 +20,8 @@ public class EmpleadoPlantaTemporariaTest {
 		LocalDate fecnac = LocalDate.of(2000, 9, 5);
 		LocalDate fecnac2 = LocalDate.of(1970, 9, 5);
 		LocalDate fecini = LocalDate.of(2023, 5, 5);
-		empTemporaria = new EmpleadoPlantaTemporaria("pepe", "calle falsa 123", 0, fecnac, 15000, fecini, 5);
-		empTemporaria2 = new EmpleadoPlantaTemporaria("carlos", "calle falsa 123", 1, fecnac2, 15000, fecini, 5);
+		empTemporaria = new EmpleadoPlantaTemporaria("pepe", "calle falsa 123", EstadoCivil.SOLTERO, fecnac, 15000, fecini, 5);
+		empTemporaria2 = new EmpleadoPlantaTemporaria("carlos", "calle falsa 123", EstadoCivil.CASADO, fecnac2, 15000, fecini, 5);
 	}
 
 	@Test

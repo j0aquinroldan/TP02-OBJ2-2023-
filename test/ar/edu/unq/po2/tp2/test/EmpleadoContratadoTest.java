@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import ar.edu.unq.po2.tp2.Empleado;
 import ar.edu.unq.po2.tp2.EmpleadoContratado;
+import ar.edu.unq.po2.tp2.EstadoCivil;
 
 public class EmpleadoContratadoTest {
 	EmpleadoContratado empContratado;
@@ -16,7 +17,7 @@ public class EmpleadoContratadoTest {
 	@BeforeEach
 	public void setup() {
 		LocalDate fecnac = LocalDate.of(2001, 9, 5);
-		empContratado = new EmpleadoContratado("joaquin", "alem", 1, fecnac, 20000, 1, "cheque");
+		empContratado = new EmpleadoContratado("joaquin", "alem", EstadoCivil.CASADO, fecnac, 20000, 1, "cheque");
 	}
 	
 	@Test

@@ -7,7 +7,7 @@ public class EmpleadoPlantaTemporaria extends Empleado {
 	private LocalDate fechaFinDesignacionPlantaTemporaria;
 	private int cantidadHorasExtras;
 	
-	public EmpleadoPlantaTemporaria(String nombre, String direccion, int estadoCivil, LocalDate fechaNacimiento,
+	public EmpleadoPlantaTemporaria(String nombre, String direccion, EstadoCivil estadoCivil, LocalDate fechaNacimiento,
 			double sueldoBasico, LocalDate fechaFinDesignacionPlantaTemporaria, int cantidadHorasExtras) {
 		
 		super(nombre, direccion, estadoCivil, fechaNacimiento, sueldoBasico);

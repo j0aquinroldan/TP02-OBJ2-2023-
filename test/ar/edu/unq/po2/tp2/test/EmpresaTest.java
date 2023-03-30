@@ -14,6 +14,7 @@ import ar.edu.unq.po2.tp2.EmpleadoContratado;
 import ar.edu.unq.po2.tp2.EmpleadoPlantaPermanente;
 import ar.edu.unq.po2.tp2.EmpleadoPlantaTemporaria;
 import ar.edu.unq.po2.tp2.Empresa;
+import ar.edu.unq.po2.tp2.EstadoCivil;
 import ar.edu.unq.po2.tp2.ReciboHaberes;
 
 public class EmpresaTest {
@@ -27,9 +28,9 @@ public class EmpresaTest {
 	public void setup() {
 		LocalDate fecnac = LocalDate.of(2001, 9, 5);
 		LocalDate fecini = LocalDate.of(2023, 5, 5);
-		pepe = new EmpleadoPlantaTemporaria("pepe", "calle falsa 123", 0, fecnac, 15000, fecini, 5);
-		joaquin = new EmpleadoPlantaPermanente("joaquin", "alem", 1, fecnac, 20000, 1, 10);
-		empContratado = new EmpleadoContratado("joaquin", "alem", 1, fecnac, 20000, 1, "cheque");
+		pepe = new EmpleadoPlantaTemporaria("pepe", "calle falsa 123", EstadoCivil.DIVORCIADO, fecnac, 15000, fecini, 5);
+		joaquin = new EmpleadoPlantaPermanente("joaquin", "alem", EstadoCivil.CASADO, fecnac, 20000, 1, 10);
+		empContratado = new EmpleadoContratado("joaquin", "alem", EstadoCivil.CASADO, fecnac, 20000, 1, "cheque");
 
 		empresa = new Empresa("empresa", "123");
 	}

@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class EmpleadoPlantaPermanente extends Empleado {
 
 	
-	public EmpleadoPlantaPermanente(String nombre, String direccion, int estadoCivil, LocalDate fechaNacimiento,
+	public EmpleadoPlantaPermanente(String nombre, String direccion, EstadoCivil estadoCivil, LocalDate fechaNacimiento,
 			double sueldoBasico, int cantidadHijos, int añosAntiguedad) {
 		
 		super(nombre, direccion, estadoCivil, fechaNacimiento, sueldoBasico);
@@ -38,7 +38,7 @@ public class EmpleadoPlantaPermanente extends Empleado {
 	}
 	
 	public double asignacionPorConyuge() {
-		return 100 * super.getEstadoCivil();
+		return 100 * super.getEstadoCivil().getRem();
 	}
 	
 	public double getAntiguedad() {
