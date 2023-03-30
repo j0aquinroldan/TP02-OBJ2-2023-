@@ -13,7 +13,8 @@ public class Producto {
 	}
 	
 	public Producto(String nombre, double precioBase, Boolean esPreciosCuidados) {
-		new Producto(nombre, precioBase);
+		this.setNombre(nombre);
+		this.setPrecioBase(precioBase);
 		this.setEsPreciosCuidados(esPreciosCuidados);
 	}
 	
@@ -37,5 +38,14 @@ public class Producto {
 
 	public Boolean esPrecioCuidado() {
 		return this.esPreciosCuidados;
+	}
+
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	public void aumentarPrecio(double d) {
+		this.setPrecioBase(precioBase+d);
+		
 	}
 }

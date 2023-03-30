@@ -7,23 +7,19 @@ import org.junit.jupiter.api.*;
 import ar.edu.unq.po2.tp4.ProductoPrimeraNecesidad;
 
 public class ProductoPrimeraNecesidadTestCase {
-	
-	ProductoPrimeraNecesidad ppn;
-	ProductoPrimeraNecesidad ppn2;
 
-	
-	
+	ProductoPrimeraNecesidad ppn;
+	ProductoPrimeraNecesidad leche;
+
 	@BeforeEach
 	void setup() {
 		ppn = new ProductoPrimeraNecesidad("fideos", 40);
-		ppn2 = new ProductoPrimeraNecesidad("carne", 100, true);
-
+		leche = new ProductoPrimeraNecesidad("Leche", 8d, false);
 	}
-	
-	
+
 	@Test
-	void getPrecioFinalTest() {
-		assertEquals(36, ppn.getPrecioFinal());
-		}
+	void testCalcularPrecio() {
+		assertEquals(7.2, leche.getPrecioFinal());
+	}
 
 }
