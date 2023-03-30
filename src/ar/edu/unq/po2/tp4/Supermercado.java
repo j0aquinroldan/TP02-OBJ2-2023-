@@ -19,9 +19,6 @@ public class Supermercado {
 		this.productos.add(producto);
 	}
 	
-	public void eliminarProducto(Producto producto) {
-		this.productos.remove(producto);
-	}
 	
 	public int getCantidadDeProductos() {
 		return this.productos.size();

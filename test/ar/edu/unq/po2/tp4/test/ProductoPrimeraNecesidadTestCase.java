@@ -9,6 +9,7 @@ import ar.edu.unq.po2.tp4.ProductoPrimeraNecesidad;
 public class ProductoPrimeraNecesidadTestCase {
 
 	ProductoPrimeraNecesidad leche;
+	ProductoPrimeraNecesidad ppn1;
 	ProductoPrimeraNecesidad ppn3;
 	ProductoPrimeraNecesidad ppn2;		
 
@@ -17,6 +18,7 @@ public class ProductoPrimeraNecesidadTestCase {
 	@BeforeEach
 	void setup() {
 		leche = new ProductoPrimeraNecesidad("Leche", 8d, false);
+		ppn1 = new ProductoPrimeraNecesidad("fideos", 50);
 		ppn2 = new ProductoPrimeraNecesidad("arroz", 40, 0.08);
 		ppn3 = new ProductoPrimeraNecesidad("leche", 100, true, 0.11);
 	}
